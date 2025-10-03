@@ -16,8 +16,8 @@ print("ÉTAPE 1 : Création de la matrice X (10 lignes × 2 colonnes)")
 print("="*70)
 
 # Créer une matrice 10x2 avec des nombres aléatoires
-np.random.seed(42)  # Pour la reproductibilité
-X = np.random.rand(10, 2)
+rng = np.random.default_rng(seed=12345)
+X = rng.uniform(size=(10, 2))
 
 print(f"\nMatrice X de dimension {X.shape}:")
 print(X)
@@ -86,8 +86,8 @@ print("  - Tous les points sont dans une seule 'tranche'")
 #%%
 print("\n--- 3.3 : Calcul des différences et élévation au carré ---")
 print("\nMaintenant, grâce au broadcasting NumPy :")
-print(f"  - X1 de shape {X1.shape} (10, 1, 2)")
-print(f"  - X2 de shape {X2.shape} (1, 10, 2)")
+print(f"  - X1 de shape {X1.shape} ")
+print(f"  - X2 de shape {X2.shape} ")
 print(f"  - X1 - X2 donnera un tableau de shape (10, 10, 2)")
 #%%
 # Calcul des différences pour chaque coordonnée
@@ -152,6 +152,7 @@ print("\nExplication :")
 print("  - La première colonne contient toujours le point lui-même (distance 0)")
 print("  - Les colonnes suivantes sont les voisins par ordre de proximité")
 
+#%%
 print("\n" + "="*70)
 print("ÉTAPE 6 : K plus proches voisins avec argpartition (k=2)")
 print("="*70)
@@ -269,3 +270,4 @@ print("="*70)
 print("\n✓ Fichiers générés :")
 print("  - nuage_points.png : visualisation des points")
 print("  - knn_connexions.png : connexions entre voisins proches")
+# %%
